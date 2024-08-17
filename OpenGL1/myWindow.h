@@ -6,7 +6,6 @@
 #include "glApplication.h"
 #include "glutwindow.h"
 #include "glsl.h"
-#include "objects.h"
 #include <time.h>
 #include <cmath>
 
