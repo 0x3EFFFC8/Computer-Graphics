@@ -36,6 +36,24 @@ var createScene = function () {
     var light = new BABYLON.HemisphericLight("light", new BABYLON.Vector3(0, 1, 0), scene);
     light.intensity = 0.7;
 
+    var castleMat = new BABYLON.StandardMaterial("castleMat", scene);
+    castleMat.diffuseColor = new BABYLON.Color3(0.5, 0.5, 0.5);
+
+    BABYLON.SceneLoader.ImportMeshAsync("", "https://0x3efffc8.github.io/test/Meshes/", "castle/castle.glb").then((result) => {
+        result.meshes[1].material = castleMat;
+        result.meshes[1].position = new BABYLON.Vector3(0, 0, 0);
+        result.meshes[1].scaling = new BABYLON.Vector3(1, 1, 1);
+    });
+
+    var castleTowerMat = new BABYLON.StandardMaterial("castleTowerMat", scene);
+    castleTowerMat.diffuseTexture = new BABYLON.Texture("https://0x3efffc8.github.io/test/Meshes/castleTower/castleTower.png", scene);
+
+    BABYLON.SceneLoader.ImportMeshAsync("", "https://0x3efffc8.github.io/test/Meshes/", "castleTower/castleTower.glb").then((result) => {
+        result.meshes[1].material = castleTowerMat;
+        result.meshes[1].position = new BABYLON.Vector3(0, -145, 15);
+        result.meshes[1].scaling = new BABYLON.Vector3(7, 7, 55);
+    });
+    
     return scene;
 };
 
