@@ -63,6 +63,16 @@ var createScene = function () {
         result.meshes[1].position = new BABYLON.Vector3(90, 180, 0);
         result.meshes[1].scaling = new BABYLON.Vector3(0.8, 0.8, 0.8);
     });
+
+    var mountainMat = new BABYLON.StandardMaterial("mountainMat", scene);
+    mountainMat.diffuseTexture = new BABYLON.Texture("https://0x3efffc8.github.io/test/Meshes/mountain/mountain.jpg", scene);
+    mountainMat.bumpTexture = new BABYLON.Texture("https://0x3efffc8.github.io/test/Meshes/mountain/mountain_nrm.png", scene);
+
+    BABYLON.SceneLoader.ImportMeshAsync("", "https://0x3efffc8.github.io/test/Meshes/", "mountain/mountain.glb").then((result) => {
+        result.meshes[1].material = mountainMat;
+        result.meshes[1].position = new BABYLON.Vector3(65, -190, 65);
+        result.meshes[1].scaling = new BABYLON.Vector3(80, 80, 80);
+    });
     
     return scene;
 };
