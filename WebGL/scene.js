@@ -53,6 +53,16 @@ var createScene = function () {
         result.meshes[1].position = new BABYLON.Vector3(0, -145, 15);
         result.meshes[1].scaling = new BABYLON.Vector3(7, 7, 55);
     });
+
+    var dragonMat = new BABYLON.StandardMaterial("dragonMat", scene);
+    dragonMat.diffuseTexture = new BABYLON.Texture("https://0x3efffc8.github.io/test/Meshes/dragon/dragon.jpg", scene);
+
+    BABYLON.SceneLoader.ImportMeshAsync("", "https://0x3efffc8.github.io/test/Meshes/", "dragon/dragon.glb").then((result) => {
+        result.meshes[1].material = dragonMat;
+        result.meshes[1].y = Math.PI;
+        result.meshes[1].position = new BABYLON.Vector3(90, 180, 0);
+        result.meshes[1].scaling = new BABYLON.Vector3(0.8, 0.8, 0.8);
+    });
     
     return scene;
 };
